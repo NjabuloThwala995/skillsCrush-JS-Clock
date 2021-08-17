@@ -1,0 +1,79 @@
+<div>
+  <h1 id=timeDisplay></h1>
+  <button id='setALarm'>Set Alarm</button>
+  <button>Start StopWatch</button>
+</div>
+
+<style>
+Div {
+ position:absolute;
+ top:20%;
+ left:20%;
+ border: solid 2px #D8BFD8;
+ padding:100px;
+}
+#timeDisplay{
+  font-size:5em;
+  margin:0px;
+  color:#D8BFD8;
+  font-family:Old Standard TT, serif;
+}
+
+button {
+  padding:5px;
+  border:solid #D8BFD8 1px;
+  background:transparent;
+  margin:5px;
+  transition:2s;
+  color:#D8BFD8;
+}
+
+button:hover{
+  background:#D8BFD8;
+  color: white;
+}
+
+button:focus{
+  background:#D8BFD8;
+  color: white;
+}
+</style>
+<script>
+  var currentTimeDisplay = document.getElementById('timeDisplay');
+  var btnSetAlarm = document.getElementById('setALarm');
+
+  function displayCurrentTime() {
+    const noon = 12;
+    const nightClockBackGround = 'black'
+    const nightDocumentColor = 'white'
+    let meridiem = "AM";
+    let today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
+
+    if (hours => noon) {
+      meridiem = 'PM';
+    }
+
+    if (hours < 10) {
+      hours = '0' + hours;
+    }
+
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
+
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
+    var time = hours + ":" + minutes + ":" + seconds + "  " + meridiem;
+    currentTimeDisplay.innerHTML = time;
+  }
+
+
+  btnSetAlarm.addEventListener('click', (e) => {}, false);
+
+  window.setInterval(displayCurrentTime, 1000);
+
+</script>
