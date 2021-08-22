@@ -1,79 +1,40 @@
-<div>
-  <h1 id=timeDisplay></h1>
-  <button id='setALarm'>Set Alarm</button>
-  <button>Start StopWatch</button>
-</div>
+<!DOCTYPE html>
+<html>
 
-<style>
-Div {
- position:absolute;
- top:20%;
- left:20%;
- border: solid 2px #D8BFD8;
- padding:100px;
-}
-#timeDisplay{
-  font-size:5em;
-  margin:0px;
-  color:#D8BFD8;
-  font-family:Old Standard TT, serif;
-}
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>
 
-button {
-  padding:5px;
-  border:solid #D8BFD8 1px;
-  background:transparent;
-  margin:5px;
-  transition:2s;
-  color:#D8BFD8;
-}
-
-button:hover{
-  background:#D8BFD8;
-  color: white;
-}
-
-button:focus{
-  background:#D8BFD8;
-  color: white;
-}
-</style>
-<script>
-  var currentTimeDisplay = document.getElementById('timeDisplay');
-  var btnSetAlarm = document.getElementById('setALarm');
-
-  function displayCurrentTime() {
-    const noon = 12;
-    const nightClockBackGround = 'black'
-    const nightDocumentColor = 'white'
-    let meridiem = "AM";
-    let today = new Date();
-    let hours = today.getHours();
-    let minutes = today.getMinutes();
-    let seconds = today.getSeconds();
-
-    if (hours => noon) {
-      meridiem = 'PM';
-    }
-
-    if (hours < 10) {
-      hours = '0' + hours;
-    }
-
-    if (minutes < 10) {
-      minutes = '0' + minutes;
-    }
-
-    if (seconds < 10) {
-      seconds = '0' + seconds;
-    }
-    var time = hours + ":" + minutes + ":" + seconds + "  " + meridiem;
-    currentTimeDisplay.innerHTML = time;
-  }
-
-
-  btnSetAlarm.addEventListener('click', (e) => {}, false);
-
-  window.setInterval(displayCurrentTime, 1000);
-
-</script>
+<body>
+  <div>
+    <div class='clock'>
+      <h1 id=timeDisplay></h1>
+      <button id='setALarm'>Set Alarm</button>
+      <button>Start StopWatch</button>
+    
+      <div class="alarmInputs">
+        <div class="labels">
+          <label>Enter Hour</label>
+          <label>Enter Minutes</label>
+          <label>Enter Seconds</label>
+        </div>
+    
+        <div>
+          <input id="alarmHour" min=0 max=23 type="number">
+          <input id="alarmMins" min=0 max=59 type="number">
+          <input id="alarmSeconds" min=0 max=59 type="number">
+        </div>
+      </div>
+    
+      <button id="saveAlarm">
+        Save Alarm
+      </button>
+      </div>
+  </div>
+</body>
+<script src='main.js'></script>
+</html>
