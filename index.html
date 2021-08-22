@@ -10,31 +10,35 @@
 </head>
 
 <body>
-  <div>
-    <div class='clock'>
-      <h1 id=timeDisplay></h1>
-      <button id='setALarm'>Set Alarm</button>
-      <button>Start StopWatch</button>
-    
-      <div class="alarmInputs">
-        <div class="labels">
-          <label>Enter Hour</label>
-          <label>Enter Minutes</label>
-          <label>Enter Seconds</label>
-        </div>
-    
-        <div>
-          <input id="alarmHour" min=0 max=23 type="number">
-          <input id="alarmMins" min=0 max=59 type="number">
-          <input id="alarmSeconds" min=0 max=59 type="number">
-        </div>
+  <div class='clock'>
+    <h1 id=timeDisplay></h1>
+    <button id='setALarm'>Set Alarm</button>
+    <button id='startStopWatch'>Start StopWatch</button>
+  
+    <div class="alarmInputs">
+      <div class="labels">
+        <label>Enter Hour</label>
+        <label>Enter Minutes</label>
+        <label>Enter Seconds</label>
       </div>
-    
-      <button id="saveAlarm">
-        Save Alarm
-      </button>
+  
+      <div>
+        <input id="alarmHour" min=1 max=23 type="number">
+        <input id="alarmMins" min=1 max=59 type="number">
+        <input id="alarmSeconds" min=1 max=59 type="number">
       </div>
-  </div>
+        <button id="saveAlarm">
+      Save Alarm
+    </button>
+    </div>
+    
+    <div class="stopWatchDisplay">
+      <div class="labels">
+      <h1 id="stopDisplay">
+     00:00:00 
+      </h1>
+      </div>
+    </div>
 </body>
 <script src='main.js'></script>
 </html>
